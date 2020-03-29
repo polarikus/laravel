@@ -5,12 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Главная</title>
+    <title><?=$categoryName?></title>
 </head>
-<header>
-    <?php include_once 'menue.php'?>
-</header>
 <body>
-<p>Главная</p>
+<header>
+<?php include_once 'menue.php'?>
+</header>
+<div class="content">
+    <?php foreach ($news as $item):?>
+            <a href="<?=route('NewsOne', $item['id'])?>"><?=$item['title']?></a><br><br>
+    <?php endforeach;?>
+</div>
 </body>
 </html>

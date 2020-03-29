@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af23f3b2-a6f4-4229-8521-cc62c54d405a" name="Default Changelist" comment="" />
+    <list default="true" id="af23f3b2-a6f4-4229-8521-cc62c54d405a" name="Default Changelist" comment="Второе задание">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contacts.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contacts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menue.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -121,6 +137,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="debugger.dataViews" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\i9607\code\laravel\resources\views\Admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\i9607\code\laravel\resources\views\Admin" />
+      <recent name="C:\Users\i9607\code\laravel\resources\views" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -139,10 +172,50 @@
       <option name="presentableId" value="Default" />
       <updated>1585082181593</updated>
       <workItem from="1585082186627" duration="1197000" />
+      <workItem from="1585471890026" duration="672000" />
+      <workItem from="1585472781251" duration="12810000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Второе задание" />
+    <option name="LAST_COMMIT_MESSAGE" value="Второе задание" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585472483645">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585472483645" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585489737901">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585489737901" />
+    <state x="644" y="175" width="645" height="690" key="#phpunit.xml" timestamp="1585472460627">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="644" y="175" width="645" height="690" key="#phpunit.xml/0.0.1920.1040@0.0.1920.1040" timestamp="1585472460627" />
+    <state x="585" y="116" key="CommitChangelistDialog2" timestamp="1585490306653">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585490306653" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1585472132497">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585472132497" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585472200323">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585472200323" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585490187450">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585490187450" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1585478886333">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585478886333" />
   </component>
 </project>

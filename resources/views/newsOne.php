@@ -9,15 +9,11 @@
 </head>
 <body>
 <header>
-    <ul>
-        <li><a href="http://laravel.lc/main">Главная</a></li>
-        <li><a href="http://laravel.lc/about">О проекте</a></li>
-        <li><a href="http://laravel.lc/contacts">Контакты</a></li>
-        <li><a href="http://laravel.lc/news">Новости</a></li>
-    </ul>
+<?php include_once 'menue.php'?>
 </header>
 <div class="content">
-    <p>Это проект на laravel</p>
+   <h1><?=$news['title']?></h1>
+    <p><?=$news['text']?></p>
 </div>
 </body>
 </html>

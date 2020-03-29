@@ -5,12 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Главная</title>
+    <title>Админка</title>
 </head>
+<body>
 <header>
     <?php include_once 'menue.php'?>
 </header>
-<body>
-<p>Главная</p>
+<div class="content">
+    <p>Adminka</p>
+</div>
 </body>
 </html>

@@ -2,26 +2,50 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Группа роутов новостей
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Тут у нас группа роутов с новостными функциями
 |
 */
 
-Route::get('/main', function () {
-    return view('main');
+Route::group([
+    'prefix' => 'news',
+    'as' => 'News'
+],function (){
+    Route::get('/', 'NewsController@index')->name('');
+    Route::get('/{id}', 'NewsController@show')->name('One');
+    Route::get('/category/{name}', 'NewsController@category')->name('CategoryOne');
 });
-Route::get('/about', function () {
-    return view('about');
+/*
+|--------------------------------------------------------------------------
+| Группа роутов для админки
+|--------------------------------------------------------------------------
+|
+| Тут у нас группа роутов для админкм
+|
+*/
+
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'as' => 'Admin'
+],function (){
+    Route::get('/', 'IndexController@index')->name('');
 });
-Route::get('/contacts', function () {
-    return view('contacts');
-});
-Route::get('/news', function () {
-    return view('news');
-});
+
+/*
+|--------------------------------------------------------------------------
+| Не группированные роуты
+|--------------------------------------------------------------------------
+|
+| Тут у нас не группированные роуты
+|
+*/
+
+Route::get('/', 'HomeController@index')->name('Home');
+Route::get('/contacts', 'HomeController@contacts')->name('Contacts');
+
