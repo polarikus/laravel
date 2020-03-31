@@ -36,4 +36,12 @@ class Category extends Model
             }
         }
     }
+
+    public static function getCategoryRuName($name){
+        foreach (static::$category as $item){
+            if ($item['name'] == $name){
+                return $item['category'];
+            }
+        }
+    }
 }

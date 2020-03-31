@@ -9,28 +9,28 @@ class News extends Model
     private static $news = [
         1 => [
             'id' => 1,
-            'main' => true,
+            'active' => true, //Пока не используется
             'title' => 'Политичненькая 1',
             'category' => 1,
             'text' => 'Кто-то что-то опять сделал, России это не понравилось'
         ],
         2 => [
             'id' => 2,
-            'main' => true,
+            'active' => true,
             'title' => 'Научненькая 1',
             'category' => 2,
             'text' => 'Кто-то что-то опять сделал и получил премию'
         ],
         3 => [
             'id' => 3,
-            'main' => false,
+            'main' => true,
             'title' => 'Политичненькая 2',
             'category' => 1,
             'text' => 'Новость про думму'
         ],
         4 => [
             'id' => 4,
-            'main' => false,
+            'main' => true,
             'title' => 'Научненькая 2',
             'category' => 2,
             'text' => 'Запустили новый линейный ускоритель'

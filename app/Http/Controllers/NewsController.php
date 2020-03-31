@@ -11,7 +11,8 @@ class NewsController extends Controller
     public function index(){
         return view('news')->with([
             'news' => News::getNews(),
-            'category' => Category::getAllCategory()
+            'category' => Category::getAllCategory(),
+            'menu' => 'news'
         ]);
     }
 
@@ -22,7 +23,9 @@ class NewsController extends Controller
     public function category($name){
         return view('categoryOne')->with([
             'categoryName' => $name,
-            'news' => News::getNewsByCategory($name)
+            'news' => News::getNewsByCategory($name),
+            'title' => Category::getCategoryRuName($name),
+            'menu' => 'category'
         ]);
     }
 }
