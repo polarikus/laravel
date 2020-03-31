@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        return view('main');
+        return view('main')->with('title', 'Главная');
     }
 
     public function contacts(){
