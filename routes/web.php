@@ -35,6 +35,7 @@ Route::group([
     'as' => 'Admin'
 ],function (){
     Route::get('/', 'IndexController@index')->name('');
+    Route::get('addNews', 'IndexController@addNews')->name('.addNews');
 });
 
 /*
@@ -48,4 +49,8 @@ Route::group([
 
 Route::get('/', 'HomeController@index')->name('Home');
 Route::get('/contacts', 'HomeController@contacts')->name('Contacts');
+Route::get('/login', 'HomeController@login')->name('Login');
 
+
+Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');
