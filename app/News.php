@@ -2,51 +2,25 @@
 
 namespace App;
 
+use Faker\Provider\File;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class News extends Model
 {
-    private static $news = [
-        1 => [
-            'id' => 1,
-            'active' => true, //Пока не используется
-            'title' => 'Политичненькая 1',
-            'category' => 1,
-            'text' => 'Кто-то что-то опять сделал, России это не понравилось'
-        ],
-        2 => [
-            'id' => 2,
-            'active' => true,
-            'title' => 'Научненькая 1',
-            'category' => 2,
-            'text' => 'Кто-то что-то опять сделал и получил премию'
-        ],
-        3 => [
-            'id' => 3,
-            'main' => true,
-            'title' => 'Политичненькая 2',
-            'category' => 1,
-            'text' => 'Новость про думму'
-        ],
-        4 => [
-            'id' => 4,
-            'main' => true,
-            'title' => 'Научненькая 2',
-            'category' => 2,
-            'text' => 'Запустили новый линейный ускоритель'
-        ]
-    ];
 
 
-    public static function getNews(){
 
-            return static::$news;
+
+public static function getNews(){
+
+            return json_decode(Storage::disk('local')->get('data/news.json'), true);
     }
 
     public static function getNewsByCategory(string $category)
     {
         $categoryId = Category::getCategoryId($category);
-        $arr = static::$news;
+        $arr = self::getNews();
         $news = [];
         foreach ($arr as $item) {
             if ($item['category'] == $categoryId) {
@@ -57,10 +31,27 @@ class News extends Model
     }
 
     public static function getOneNews($id){
-        $news = static::$news;
+        $news = self::getNews();
         return $news[$id];
     }
 
+    public static function addNews ($formData){
+        $arr = News::getNews();
+        $arr[count(News::getNews()) + 1] = [
+            'id' => count(News::getNews()) + 1,
+            'main' => true,
+            'title' => $formData['Header'],
+            'category' => $formData['Category'],
+            'text' => $formData['Content']
+        ];
+        Storage::disk('local')->put('data/news.json', json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+/*
+    public static function getJson() {
+        return response('{"error": "token incorrect"}', 401)->header('Content-type', 'application/json');
+            //->json(static::getNews())->header('Status Code:', '403')->setEncodingOptions(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
+*/
 
 
 }

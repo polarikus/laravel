@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\News;
 use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
@@ -15,4 +16,6 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
 }
+
