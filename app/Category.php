@@ -3,33 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
-    private static $category = [
-        1 => [
-            'id' => 1,
-            'category' => 'Политика',
-            'name' => 'politics'
-        ],
-        2 => [
-            'id' => 2,
-            'category' => 'Наука',
-            'name' => 'since'
-        ]
-    ];
 
     public static function getAllCategory(){
-        return static::$category;
+        return json_decode(Storage::disk('local')->get('data/categories.json'), true);
     }
 
     public static function getCategory($id){
-        $category = static::$category;
+        $category = self::getAllCategory();
         return $category[$id]['name'];
     }
 
     public static function getCategoryId($name){
-        $category = static::$category;
+        $category = self::getAllCategory();
         foreach ($category as $item){
             if ($item['name'] == $name){
                 return $item['id'];
@@ -38,7 +27,7 @@ class Category extends Model
     }
 
     public static function getCategoryRuName($name){
-        foreach (static::$category as $item){
+        foreach (self::getAllCategory() as $item){
             if ($item['name'] == $name){
                 return $item['category'];
             }

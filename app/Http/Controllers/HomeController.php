@@ -23,16 +23,15 @@ class HomeController extends Controller
      */
     public function index(){
         return view('main')->with([
-            'title' => 'Главная',
-            'menu' => 'main'
+            'title' => 'Главная'
         ]);
     }
 
     public function contacts(){
-        return view('contacts')->with('menu', 'contacts');
+        return view('contacts');
     }
 
     public function login(){
-        return view('auth.login')->with('menu', 'login');
+        return view('auth.login');
     }
 }
