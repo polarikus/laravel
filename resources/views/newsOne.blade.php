@@ -7,10 +7,16 @@
 @section('menu')
     @include('menu')
 @endsection
-
 @section('content')
-    <h1>{{ $news['title'] }}</h1>
-    <p>{{ $news['text'] }}</p>
+<div class="container mt-5">
+    <div class="col-md-8 justify-content-center">
+        <div class="blog-post">
+                <div class="blog-post-title">
+                    <h4>{{ $news['title'] }}</h4>
+                </div>
+                <p class="lead">{{ $news['text'] }}</p>
+        </div>
+    </div>
+</div>
 @endsection
-
 

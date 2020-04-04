@@ -14,16 +14,6 @@
 <header>
     @yield('menu')
 </header>
-        <div class="mt-5 container">
-            <div class="row">
-                <div class="col-sm">
-                </div>
-                <div class="col-sm">
-                    @yield('content')
-                </div>
-                <div class="col-sm">
-                </div>
-            </div>
-        </div>
+@yield('content')
 </body>
 </html>

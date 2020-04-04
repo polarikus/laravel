@@ -30,5 +30,9 @@ class NewsController extends Controller
         ]);
     }
 
+    public function categories(){
+        return view('categories')->with('categories', Category::getAllCategory());
+    }
+
 }
 

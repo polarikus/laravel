@@ -17,5 +17,9 @@ class ExampleTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testNews(){
+        $this->assertIsArray(News::getNews());
+    }
+
 }
 

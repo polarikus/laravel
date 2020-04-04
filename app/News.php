@@ -49,7 +49,7 @@ public static function getNews(){
 /*
     public static function getJson() {
         return response('{"error": "token incorrect"}', 401)->header('Content-type', 'application/json');
-            //->json(static::getNews())->header('Status Code:', '403')->setEncodingOptions(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            ->json(static::getNews())->header('Status Code:', '403')->setEncodingOptions(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 */
 

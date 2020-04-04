@@ -35,7 +35,8 @@ Route::group([
     'as' => 'Admin'
 ],function (){
     Route::get('/', 'IndexController@index')->name('');
-    Route::match(['get', 'post'],'addNews', 'IndexController@addNews')->name('.addNews');
+    Route::match(['get', 'post'],'addNews', 'IndexController@newNews')->name('.addNews');
+    Route::get('/export/{name}', 'IndexController@export')->name('.export');
 });
 
 /*
@@ -50,7 +51,7 @@ Route::group([
 Route::get('/', 'HomeController@index')->name('Home');
 Route::get('/contacts', 'HomeController@contacts')->name('Contacts');
 Route::get('/login', 'HomeController@login')->name('Login');
-Route::get('/api', 'NewsController@api');
+Route::get('/categories', 'NewsController@categories')->name('Categories');
 
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');

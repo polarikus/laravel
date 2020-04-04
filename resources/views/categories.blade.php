@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('title')
-    @parent {{ $title }}
+    Новости
 @endsection
 
 @section('menu')
@@ -11,13 +11,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            @foreach($news as $item)
-                <div class="col-md-6 mb-4">
+            @foreach($categories as $item)
+                <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{$item['title']}}</h5>
-                            <p class="card-text">{{$item['text']}}...</p>
-                            <a href="{{route('NewsOne', $item['id'])}}" class="btn btn-primary">Читать дальше</a>
+                            <h5 class="card-title">{{$item['category']}}</h5>
+                            <a href="{{ route('NewsCategoryOne', $item['name']) }}" class="btn btn-primary">Читать</a>
                         </div>
                     </div>
                 </div>
@@ -25,4 +24,3 @@
         </div>
     </div>
 @endsection
-
