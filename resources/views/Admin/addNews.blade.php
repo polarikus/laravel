@@ -15,7 +15,7 @@
                 <form method="POST" action="{{ route('Admin.addNews') }}">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Заголовок</label>
-                        <input type="Header" class="form-control" name="Header" >
+                        <input type="Header" class="form-control" name="Header">
                         @csrf
                     </div>
                     <div class="form-group">

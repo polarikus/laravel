@@ -14,7 +14,7 @@
         <a class="p-2 text-dark" href="{{ route('Home') }}">Главная</a>
         <a class="p-2 text-dark" href="{{ route('Admin.addNews') }}">Добавить новости</a>
         <a class="p-2 text-dark" href="{{ route('News') }}">Новости</a>
-        <a class="p-2 text-dark" href="{{ route('Admin.export', 'news') }}"Экспорт новости</a>
+        <a class="p-2 text-dark" href="{{ route('Admin.export', 'news') }}">Экспорт новости</a>
         <a class="p-2 text-dark" href="{{ route('Admin.export', 'category') }}">Экспорт категории</a>
     </nav>
     {{--}}

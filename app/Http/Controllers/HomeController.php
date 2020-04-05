@@ -21,17 +21,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(){
+    public function index()
+    {
         return view('main')->with([
             'title' => 'Главная'
         ]);
     }
 
-    public function contacts(){
+    public function contacts()
+    {
         return view('contacts');
     }
 
-    public function login(){
+    public function login()
+    {
         return view('auth.login');
     }
 }

@@ -30,7 +30,8 @@ class NewsController extends Controller
         ]);
     }
 
-    public function categories(){
+    public function categories()
+    {
         return view('categories')->with('categories', Category::getAllCategory());
     }
 

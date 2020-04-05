@@ -52,12 +52,13 @@ class IndexController extends Controller
         return view('admin.addNews')->with('category', Category::getAllCategory());
     }
 
-    public function export($name){
-        if ($name == 'news'){
+    public function export($name)
+    {
+        if ($name == 'news') {
             return Admin::exportNews();
-        }elseif ($name == 'category'){
+        } elseif ($name == 'category') {
             return Admin::exportCategories();
-        }else{
+        } else {
             die('alert(\'Такого экспорта нет!\')');
         }
     }
