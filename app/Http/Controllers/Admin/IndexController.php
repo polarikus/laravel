@@ -40,12 +40,13 @@ class IndexController extends Controller
     {
         if ($request->isMethod('post')) {
             $formData = $request->all();
-            News::addNews($formData);
+            $success = News::addNews($formData);
             //dd($arr);
-            return view('news')->with([
-                'news' => News::getNews(),
-                'category' => Category::getAllCategory()
-            ]);;
+            if ($success == true) {
+                return redirect()->route('Admin.addNews')->with('success', 'Новость успешно добавлена!');
+            } else {
+                return redirect()->route('Admin.addNews')->with('error', 'Ошибка подключения к БД!');
+            }
         }
         //dd($request->all());
 

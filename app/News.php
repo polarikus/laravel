@@ -4,6 +4,7 @@ namespace App;
 
 use Faker\Provider\File;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class News extends Model
@@ -13,7 +14,7 @@ class News extends Model
     public static function getNews()
     {
 
-        return json_decode(Storage::disk('local')->get('data/news.json'), true);
+        return  DB::table('news')->get();
     }
 
     public static function getNewsByCategory(string $category)
@@ -22,8 +23,8 @@ class News extends Model
         $arr = self::getNews();
         $news = [];
         foreach ($arr as $item) {
-            if ($item['category'] == $categoryId) {
-                $news[$item['id']] = $item;
+            if ($item->category_id == $categoryId) {
+                $news[$item->id] = $item;
             }
         }
         return $news;
@@ -37,15 +38,16 @@ class News extends Model
 
     public static function addNews($formData)
     {
-        $arr = News::getNews();
-        $arr[count(News::getNews()) + 1] = [
-            'id' => count(News::getNews()) + 1,
-            'main' => true,
+        $arr = [
             'title' => $formData['Header'],
-            'category' => $formData['Category'],
+            'category_id' => $formData['Category'],
             'text' => $formData['Content']
         ];
-        Storage::disk('local')->put('data/news.json', json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        if (DB::table('news')->insert($arr)){
+            return true;
+        }else{
+            return false;
+        }
     }
     /*
         public static function getJson() {
