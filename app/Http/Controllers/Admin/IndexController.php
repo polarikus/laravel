@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\News;
@@ -35,20 +36,32 @@ class IndexController extends Controller
         return view('admin.admin');
     }
 
-    public function addNews(Request $request)
+    public function newNews(Request $request)
     {
         if ($request->isMethod('post')) {
             $formData = $request->all();
-            News::addNews($formData);
+            $success = News::addNews($formData);
             //dd($arr);
-            return view('news')->with([
-                'news' => News::getNews(),
-                'category' => Category::getAllCategory()
-            ]);;
+            if ($success == true) {
+                return redirect()->route('Admin.addNews')->with('success', 'Новость успешно добавлена!');
+            } else {
+                return redirect()->route('Admin.addNews')->with('error', 'Ошибка подключения к БД!');
+            }
         }
         //dd($request->all());
 
         return view('admin.addNews')->with('category', Category::getAllCategory());
+    }
+
+    public function export($name)
+    {
+        if ($name == 'news') {
+            return Admin::exportNews();
+        } elseif ($name == 'category') {
+            return Admin::exportCategories();
+        } else {
+            die('alert(\'Такого экспорта нет!\')');
+        }
     }
 }
 
