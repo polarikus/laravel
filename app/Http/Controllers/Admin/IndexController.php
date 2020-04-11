@@ -31,27 +31,15 @@ use function MongoDB\BSON\toJSON;
 
 class IndexController extends Controller
 {
-    public function index()
+    public function index(News $news)
     {
-        return view('admin.admin');
+        $news = News::query()->paginate(6);
+        return view('admin.index')->with([
+            'news' => $news,
+            'category' => Category::all()->keyBy('id')
+        ]);
     }
 
-    public function newNews(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $formData = $request->all();
-            $success = News::addNews($formData);
-            //dd($arr);
-            if ($success == true) {
-                return redirect()->route('Admin.addNews')->with('success', 'Новость успешно добавлена!');
-            } else {
-                return redirect()->route('Admin.addNews')->with('error', 'Ошибка подключения к БД!');
-            }
-        }
-        //dd($request->all());
-
-        return view('admin.addNews')->with('category', Category::getAllCategory());
-    }
 
     public function export($name)
     {

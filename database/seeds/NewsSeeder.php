@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class NewsSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('news')->insert($this->getContent());
+        DB::table('news')->insert($this->getContent());
     }
 
     private function getContent(): array
@@ -22,7 +23,7 @@ class NewsSeeder extends Seeder
             $data[] = [
                 'title' => $faker->realText(rand(10,15)),
                 'text' => $faker->realText(rand(200,400)),
-                'category_id' => (int)rand(1,2)
+                'id_category' => (int)rand(1,2)
             ];
         }
         return $data;

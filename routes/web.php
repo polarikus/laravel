@@ -17,7 +17,7 @@ Route::group([
     'as' => 'News'
 ],function (){
     Route::get('/', 'NewsController@index')->name('');
-    Route::get('/{id}', 'NewsController@show')->name('One');
+    Route::get('/{news}', 'NewsController@show')->name('One');
     Route::get('/category/{name}', 'NewsController@category')->name('CategoryOne');
 });
 /*
@@ -32,11 +32,14 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'as' => 'Admin'
+    'as' => 'admin.'
 ],function (){
     Route::get('/', 'IndexController@index')->name('');
-    Route::match(['get', 'post'],'addNews', 'IndexController@newNews')->name('.addNews');
-    Route::get('/export/{name}', 'IndexController@export')->name('.export');
+    Route::match(['get', 'post'],'/create/news', 'NewsController@create')->name('create');
+    Route::get('/edit/news/{news}', 'NewsController@edit')->name('edit');
+    Route::post('/update/news/{news}', 'NewsController@update')->name('update');
+    Route::get('/export/{name}', 'NewsController@export')->name('export');
+    Route::get('/destroy/news/{news}', 'NewsController@destroy')->name('destroy');
 });
 
 /*

@@ -8,10 +8,12 @@
 </style>
 @extends('layouts.index')
 
-@section('title', 'Новости')
+@section('title')
+    Админка
+@endsection
 
 @section('menu')
-    @include('menu')
+    @include('admin.menu')
 @endsection
 
 @section('content')
@@ -21,11 +23,13 @@
                 @php($id = $item->id_category)
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <h5 class="card-header">{{ $category[$id]->category }}</h5>
+                        <h5 class="card-header">{{ $category[$id]->category}}</h5>
                         <div class="card-body">
                             <h5 class="card-title">{{$item->title}}</h5>
                             <p class="card-text">{{ $item->text }}</p>
                             <a href="{{route('NewsOne', $item)}}" class="btn btn-primary">Читать дальше</a>
+                            <a href="{{route('admin.edit', $item)}}" class="btn btn-success">Изменить</a>
+                            <a href="{{route('admin.destroy', $item)}}" class="btn btn-danger float-right">Удалить</a>
                         </div>
                     </div>
                 </div>
@@ -36,6 +40,3 @@
         </div>
     </div>
 @endsection
-
-
-
