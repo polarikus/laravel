@@ -32,7 +32,7 @@
             <a class="p-2 text-dark" href="{{ route('Home') }}">Главная</a>
         </li>
         <li class="nav-item">
-            <a class="p-2 text-dark" href="{{ route('Admin') }}">Админка</a>
+            <a class="p-2 text-dark" href="{{ route('admin.') }}">Админка</a>
         </li>
         <li class="nav-item">
             <a class="p-2 text-dark" href="{{ route('Contacts') }}">Контакты</a>

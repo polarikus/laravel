@@ -19,7 +19,7 @@ class CreateNewsTable extends Migration
             $table->mediumInteger('category_id')->comment('ID категории');
             $table->text('text')->comment('Текст новости');
             $table->string('img')->nullable(true)->comment('Путь к картинке');
-            $table->timestamp('created_at')->useCurrent()->comment('Дата создания');
+            $table->timestamps();
         });
     }
 

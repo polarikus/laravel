@@ -31,6 +31,9 @@
                 </div>
             @endforeach
         </div>
+        <div class="pagination justify-content-center">
+            {{ $news->links() }}
+        </div>
     </div>
 @endsection
 

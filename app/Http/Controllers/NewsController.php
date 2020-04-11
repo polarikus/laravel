@@ -10,29 +10,35 @@ class NewsController extends Controller
 {
     public function index()
     {
+        $news = News::query()->paginate(6);
         return view('news')->with([
-            'news' => News::getNews(),
-            'category' => Category::getAllCategory()
+            'news' => $news,
+            'category' => Category::all()->keyBy('id')
         ]);
     }
 
-    public function show($id)
+    public function show(News $news)
     {
-        return view('newsOne')->with('news', News::getOneNews($id));
+        return view('newsOne')->with('news', $news);
     }
 
     public function category($name)
     {
+        $category = Category::query()
+            ->select('id', 'category')
+            ->where('name', $name)
+            ->get();
+        $news = News::query()->where('id_category', $category[0]->id)->paginate(4);
         return view('categoryOne')->with([
             'categoryName' => $name,
-            'news' => News::getNewsByCategory($name),
-            'title' => Category::getCategoryRuName($name)
+            'news' => $news,
+            'title' => $category[0]->category
         ]);
     }
 
     public function categories()
     {
-        return view('categories')->with('categories', Category::getAllCategory());
+        return view('categories')->with('categories', Category::all());
     }
 
 }
