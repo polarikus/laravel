@@ -11,9 +11,26 @@ class News extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = ['title', 'category_id', 'text', 'id_category'];
+    protected $fillable = ['title', 'text', 'id_category'];
 
     public function category(){
         return $this->belongsTo(Category::class, 'id_category')->first();
+    }
+
+    public static function attributeNames(){
+        return [
+            'title' => "'Заголовок'",
+            'id_category' => "'Категория'",
+            'text' => "'Текст новости'"
+        ];
+    }
+
+    public static function rules() {
+        $tableCategory = (new Category())->getTable();
+        return [
+            'title' => 'required|alpha_dash|min:4|max:20',
+            'id_category' => "required|exists:{$tableCategory},id",
+            'text' => 'required|min:10|max:500'
+        ];
     }
 }

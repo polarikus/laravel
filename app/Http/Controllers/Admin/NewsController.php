@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    //Обработчик ошибок
+    private function success($result, string $messSucces) {
+        if ($result){
+            return ['success' => $messSucces];
+        }else{
+            return ['error' => 'Ошибка подключения к БД'];
+        }
+    }
     public function edit(News $news){
         return view('admin.addNews')->with([
             'news' => $news,
@@ -19,8 +27,9 @@ class NewsController extends Controller
     public function create(Request $request){
         $news = new News();
         if ($request->isMethod('post')) {
-            $news->fill($request->all())->save();
-                    redirect('create')->with('success', 'Новость успешно добавлена');
+            //Сохранение в БД:
+            //Редирект с сообщением об успешно добавленной новости
+            redirect('create')->with($this->success($news->fill($this->validate($request, News::rules(), [], News::attributeNames()))->save(), 'Новость успешно добавлена!'));
         }
 
 
@@ -31,12 +40,11 @@ class NewsController extends Controller
     }
 
     public function update(Request $request, News $news){
-        $news->fill($request->all())->save();
-        return redirect('admin')->with('success', 'Новость успешно изменена');
+        return redirect('admin')->with($this->success($news->fill($this->validate($request, News::rules(), [], News::attributeNames()))->save(), 'Новость успешно изменена!'));
     }
 
     public function destroy(News $news){
         $news->delete();
-        return redirect('admin')->with('success', 'Новость успешно Удалена!');
+        return redirect('admin')->with($this->success($news->delete(), 'Новость успешно Удалена!'));
     }
 }
