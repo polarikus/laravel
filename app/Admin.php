@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Admin extends Model
 {
+    //TODO Сделать выгрузку в Excel
     public static function exportNews()
     {
         return response()->json(News::getNews(), 200)

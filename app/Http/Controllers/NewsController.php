@@ -28,6 +28,7 @@ class NewsController extends Controller
             ->select('id', 'category')
             ->where('name', $name)
             ->get();
+        //TODO избавиться от индекса в  $category[0]->id
         $news = News::query()->where('id_category', $category[0]->id)->paginate(4);
         return view('categoryOne')->with([
             'categoryName' => $name,
