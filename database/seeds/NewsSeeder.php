@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\News;
 
 class NewsSeeder extends Seeder
 {
@@ -12,12 +13,14 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('news')->insert($this->getContent());
+
+        //DB::table('news')->insert($this->getContent());
+        factory(News::class, 50)->create();
     }
 
     private function getContent(): array
     {
-        $faker = Faker\Factory::create('ru_RU');
+        $faker = Faker\Factory::create();
         $data = [];
         for ($i = 0; $i < 10; $i++) {
             $data[] = [
@@ -29,3 +32,5 @@ class NewsSeeder extends Seeder
         return $data;
     }
 }
+
+
