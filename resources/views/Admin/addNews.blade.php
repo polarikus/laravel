@@ -1,11 +1,11 @@
-@extends('layouts.index')
+@extends('layouts.app')
 
 @section('title')
     Добавить новость
 @endsection
 
 @section('menu')
-    @include('admin.menu')
+    @include('menu')
 @endsection
 
 @section('content')

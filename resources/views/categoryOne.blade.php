@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <style>
     p.card-text {
         white-space: nowrap; /* Запрещаем перенос строк */
@@ -6,7 +7,7 @@
         text-overflow: ellipsis; /* Добавляем многоточие */
     }
 </style>
-@extends('layouts.index')
+
 
 @section('title')
     @parent {{ $title }}

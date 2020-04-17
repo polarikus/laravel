@@ -6,14 +6,14 @@
         text-overflow: ellipsis; /* Добавляем многоточие */
     }
 </style>
-@extends('layouts.index')
+@extends('layouts.app')
 
 @section('title')
     Админка
 @endsection
 
 @section('menu')
-    @include('admin.menu')
+    @include('menu')
 @endsection
 
 @section('content')

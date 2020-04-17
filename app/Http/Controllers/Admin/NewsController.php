@@ -29,7 +29,8 @@ class NewsController extends Controller
         if ($request->isMethod('post')) {
             //Сохранение в БД:
             //Редирект с сообщением об успешно добавленной новости
-            redirect('create')->with($this->success($news->fill($this->validate($request, News::rules(), [], News::attributeNames()))->save(), 'Новость успешно добавлена!'));
+            $this->validate($request, News::rules(), [], News::attributeNames());
+            redirect('create')->with($this->success($news->fill($request->all())->save(), 'Новость успешно добавлена!'));
         }
 
 
@@ -40,11 +41,11 @@ class NewsController extends Controller
     }
 
     public function update(Request $request, News $news){
-        return redirect('admin')->with($this->success($news->fill($this->validate($request, News::rules(), [], News::attributeNames()))->save(), 'Новость успешно изменена!'));
+        $this->validate($request, News::rules(), [], News::attributeNames());
+        return redirect('admin')->with($this->success($news->fill($request->all())->save(), 'Новость успешно изменена!'));
     }
 
     public function destroy(News $news){
-        $news->delete();
         return redirect('admin')->with($this->success($news->delete(), 'Новость успешно Удалена!'));
     }
 }

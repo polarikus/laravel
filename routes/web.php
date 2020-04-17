@@ -32,7 +32,8 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+    'middleware' => ['auth', 'is_admin']
 ],function (){
     Route::get('/', 'IndexController@index')->name('');
     Route::match(['get', 'post'],'/create/news', 'NewsController@create')->name('create');
@@ -40,6 +41,7 @@ Route::group([
     Route::post('/update/news/{news}', 'NewsController@update')->name('update');
     Route::get('/export/{name}', 'NewsController@export')->name('export');
     Route::get('/destroy/news/{news}', 'NewsController@destroy')->name('destroy');
+    Route::match(['get', 'post'], '/update/profile', 'ProfileController@update')->name('updateProfile');
 });
 
 /*
@@ -55,6 +57,8 @@ Route::get('/', 'HomeController@index')->name('Home');
 Route::get('/contacts', 'HomeController@contacts')->name('Contacts');
 Route::get('/login', 'HomeController@login')->name('Login');
 Route::get('/categories', 'NewsController@categories')->name('Categories');
+Route::match(['get', 'post'], '/update/profile', 'ProfileController@update')->name('updateProfile')->middleware('auth');
 
-//Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

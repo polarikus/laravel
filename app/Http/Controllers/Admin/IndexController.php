@@ -31,6 +31,8 @@ use function MongoDB\BSON\toJSON;
 
 class IndexController extends Controller
 {
+
+
     public function index(News $news)
     {
         $news = News::query()->paginate(6);
