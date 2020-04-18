@@ -28,7 +28,7 @@ class News extends Model
     public static function rules() {
         $tableCategory = (new Category())->getTable();
         return [
-            'title' => 'required|alpha_dash|min:4|max:20',
+            'title' => 'required|min:4|max:20',
             'id_category' => "required|exists:{$tableCategory},id",
             'text' => 'required|min:10|max:500'
         ];

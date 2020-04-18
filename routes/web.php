@@ -41,7 +41,8 @@ Route::group([
     Route::post('/update/news/{news}', 'NewsController@update')->name('update');
     Route::get('/export/{name}', 'NewsController@export')->name('export');
     Route::get('/destroy/news/{news}', 'NewsController@destroy')->name('destroy');
-    Route::match(['get', 'post'], '/update/profile', 'ProfileController@update')->name('updateProfile');
+    Route::get('/update/profile', 'ProfileController@update')->name('userShow');
+    Route::post('update/profile/{user}', 'ProfileController@update')->name('updateProfile');
 });
 
 /*
