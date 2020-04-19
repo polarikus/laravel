@@ -89,7 +89,7 @@
                                 @csrf
                             </form>
                             @if(Auth::user()->is_admin)
-                                <a class="dropdown-item" href="{{ route('admin.updateProfile') }}">Изменить профили пользователей</a>
+                                <a class="dropdown-item" href="{{ route('admin.userShow') }}">Изменить профили пользователей</a>
                             @endif
                             <a class="dropdown-item" href="{{ route('updateProfile') }}">Изменить профиль</a>
                         </div>

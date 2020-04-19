@@ -3,7 +3,7 @@
 @section('title')
     Добавить новость
 @endsection
-
+{{--TODO Подправить валидацию--}}
 @section('menu')
     @include('menu')
 @endsection
@@ -12,6 +12,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        rss
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h6>Добавить новости из rss</h6>
+                            <a href="{{route('admin.rss')}}" class="btn btn-primary">Рамблер</a>
+                        </div>
+                    </div>
+                </div>
                 <form method="POST" action="@if(!$news->id){{ route('admin.create') }}@else{{ route('admin.update', $news) }}@endif">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Заголовок</label>

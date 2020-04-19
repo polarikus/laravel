@@ -7,7 +7,7 @@
 @section('menu')
     @include('menu')
 @endsection
-
+{{--TODO Добавить валидацию, убрать JS валидацию--}}
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

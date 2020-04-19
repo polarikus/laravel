@@ -10,33 +10,28 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function update(Request $request) {
+    //TODO $errors['password'][] = 'Не верно введён текущий пароль!'; формирует только одну ошибку, но в этом массиве валидатор должен еще и свои добавлять, именно поэтому мы добавили значение в этот массив.
+    public function update(Request $request, User $user)
+    {
         $users = User::query()->paginate(1);
-        $user = Auth::user();
-        $errors = [];
-
         if ($request->isMethod('post')) {
-            if (Hash::check($request->post('password'), $user->password)) {
-                if ($request->post('passwordNew') != null){
-                    $user->fill([
-                        'name' => $request->post('name'),
-                        'email' => $request->post('email'),
-                        'password' => Hash::make($request->post('passwordNew'))
-                    ]);
-                }else{
-                    $user->fill([
-                        'name' => $request->post('name'),
-                        'email' => $request->post('email')
-                    ]);
-                }
-                $user->save();
-
-                $request->session()->flash('success', 'Данные успешно изменены!');
-            } else {
-                $errors['password'][] = 'Не верно введён текущий пароль!';
+            $is_admin = null;
+            if ($request->post('is_admin') == 'on') {
+                $is_admin = true;
+            }else{
+                $is_admin = false;
             }
 
-            return redirect()->route('admin.updateProfile')->withErrors($errors);
+            $user->fill([
+                'name' => $request->post('name'),
+                'email' => $request->post('email'),
+                'is_admin' => $is_admin
+            ]);
+            $user->save();
+
+            $request->session()->flash('success', 'Данные успешно изменены!');
+
+            return redirect()->route('admin.userShow')->withErrors($errors = 'Неизвестная ошибка');
         }
 
         return view('admin.profile', [

@@ -1,12 +1,4 @@
 @extends('layouts.app')
-<style>
-    p.card-text {
-        white-space: nowrap; /* Запрещаем перенос строк */
-        overflow: hidden; /* Обрезаем все, что не помещается в область */
-        padding: 5px; /* Поля вокруг текста */
-        text-overflow: ellipsis; /* Добавляем многоточие */
-    }
-</style>
 
 @section('title', 'Новости')
 
@@ -25,7 +17,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$item->title}}</h5>
                             <p class="card-text">{{ $item->text }}</p>
-                            <a href="{{route('NewsOne', $item)}}" class="btn btn-primary">Читать дальше</a>
+                            <a href="{{$item->link}}" target="_blank" class="btn btn-primary">Читать дальше</a>
                         </div>
                     </div>
                 </div>
