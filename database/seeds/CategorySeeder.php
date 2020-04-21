@@ -19,7 +19,11 @@ class CategorySeeder extends Seeder
             ],
             [
                 'category' => 'Наука',
-                'name' => 'since'
+                'name' => 'tech'
+            ],
+            [
+                'category' => 'Фото',
+                'name' => 'photo'
             ]
         ];
         DB::table('categories')->insert($data);

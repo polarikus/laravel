@@ -11,7 +11,7 @@ class News extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = ['title', 'text', 'id_category'];
+    protected $fillable = ['title', 'text', 'id_category', 'link', 'guid', 'rss'];
 
     public function category(){
         return $this->belongsTo(Category::class, 'id_category')->first();

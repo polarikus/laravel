@@ -43,6 +43,7 @@ Route::group([
     Route::get('/destroy/news/{news}', 'NewsController@destroy')->name('destroy');
     Route::get('/update/profile', 'ProfileController@update')->name('userShow');
     Route::post('update/profile/{user}', 'ProfileController@update')->name('updateProfile');
+    Route::get('/rss', 'ParserController@index')->name('rss');
 });
 
 /*
@@ -59,6 +60,20 @@ Route::get('/contacts', 'HomeController@contacts')->name('Contacts');
 Route::get('/login', 'HomeController@login')->name('Login');
 Route::get('/categories', 'NewsController@categories')->name('Categories');
 Route::match(['get', 'post'], '/update/profile', 'ProfileController@update')->name('updateProfile')->middleware('auth');
+/*
+|--------------------------------------------------------------------------
+| OAuth для соц сетей
+|--------------------------------------------------------------------------
+|
+| ВК и Github
+|
+*/
+//VK
+Route::get('/auth/vk', 'LoginController@loginVk')->name('vkLogin');
+Route::get('/auth/vk/response', 'LoginController@respVk')->name('vkResp');
+//Github
+Route::get('/auth/git/response', 'LoginController@respGit')->name('gitResp');
+Route::get('/auth/git', 'LoginController@loginGit')->name('gitLogin');
 
 Auth::routes();
 
