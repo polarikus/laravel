@@ -21,7 +21,7 @@ class AlterTableAddSocAuth extends Migration
                 ->default('site')
                 ->comment('Типаутентификации пользователя поумолчанию');
             $table->string('avatar', 150)
-                ->default('')
+                ->default('https://img.icons8.com/ios/50/000000/laravel.png')
                 ->comment('Ссылка на аватар');
             $table->index('id_in_soc');
         });

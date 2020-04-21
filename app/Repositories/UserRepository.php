@@ -13,9 +13,17 @@ class UserRepository {
             ->first();
 
         if (empty($userInSystem)){
+            $name = "";
+            if(!empty($user->getName())){
+                $name = $user->getName();
+            }elseif (!empty($user->getNickname())){
+                $name = $user->getNickname();
+            }else{
+                $name = "";
+            }
             $userInSystem = new User();
             $userInSystem->fill([
-                'name' => !empty($user->getName()) ? $user->getName(): !empty($user->getNickname()) ? $user->getNickname(): "",
+                'name' => $name,
                 'email' => !empty($user->getEmail()) ? $user->getEmail(): '' ,
                 'password' => rand(999999, 9999999999),
                 'id_in_soc' => !empty($user->getId()) ? $user->getId(): '',
